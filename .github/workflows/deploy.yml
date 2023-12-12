@@ -11,18 +11,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    permissions:
-      pages: write
-      id-token: write
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Set up User
-        run: |
-          git config --global user.name klinefelters
-          git config --global user.email stevenjk03@gmail.com
+        uses: fregante/setup-git-user@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
