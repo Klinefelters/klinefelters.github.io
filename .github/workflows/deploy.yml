@@ -19,6 +19,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Set up User
+        uses: fregante/setup-git-user@v2
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
