@@ -5,6 +5,9 @@ import { Box } from "@chakra-ui/react"
 export default function RootLayout() {
   return (
     <Box h="100vh" display="flex" flexDirection="column" overflow="hidden">
+      <Box>
+        <Navbar />
+      </Box>
       <Box flex="1" overflow="auto" sx={{
         '&::-webkit-scrollbar': {
           display: 'none',
@@ -14,9 +17,7 @@ export default function RootLayout() {
       }}>
         <Outlet />
       </Box>
-      <Box>
-        <Navbar />
-      </Box>
+      
     </Box>
   )
 }

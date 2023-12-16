@@ -1,4 +1,4 @@
-import { Circle, VStack, Text, Flex } from "@chakra-ui/react"
+import { Circle, VStack, Text, Flex, Spacer } from "@chakra-ui/react"
 import { useState, useEffect } from "react"
 
 export default function Scrollbar({ refs }) {
@@ -6,10 +6,24 @@ export default function Scrollbar({ refs }) {
     const [activeKey, setActiveKey] = useState(Object.keys(refs)[0]);
     const [hovered, setHovered] = useState(false);
 
+    function throttle(fn, wait) {
+        var time = Date.now();
+    
+        return function(event) {
+          event.preventDefault();
+          if (Math.abs(event.deltaY) < 4) return
+    
+          if ((time + wait - Date.now()) < 0) {
+            fn(event);
+            time = Date.now();
+          }else{
+            return
+          }
+        }
+    }
+
     useEffect(() => {
         const handleKeyDown = (event) => {
-            event.preventDefault();
-
             const keys = Object.keys(refs);
             const currentIndex = keys.indexOf(activeKey);
         
@@ -19,25 +33,22 @@ export default function Scrollbar({ refs }) {
                 handleClick(keys[currentIndex + 1], refs[keys[currentIndex + 1]]);
             }
         };
-    
-        let lastExecution = Date.now();
 
-        const handleWheel = (event) => {
+
+        const callback = (event) => {
             event.preventDefault();
 
             const keys = Object.keys(refs);
             const currentIndex = keys.indexOf(activeKey);
 
-            if (Date.now() - lastExecution > 250) {
-                if (event.deltaY < 0 && currentIndex > 0) {
-                    handleClick(keys[currentIndex - 1], refs[keys[currentIndex - 1]]);
-                    lastExecution = Date.now();
-                } else if (event.deltaY > 0 && currentIndex < keys.length - 1) {
-                    handleClick(keys[currentIndex + 1], refs[keys[currentIndex + 1]]);
-                    lastExecution = Date.now();
-                }
+            if (event.deltaY < 0 && currentIndex > 0) {
+                handleClick(keys[currentIndex - 1], refs[keys[currentIndex - 1]]);
+            } else if (event.deltaY > 0 && currentIndex < keys.length - 1) {
+                handleClick(keys[currentIndex + 1], refs[keys[currentIndex + 1]]);
             }
         };
+
+        const handleWheel = throttle(callback, 250);
     
         window.addEventListener('keydown', handleKeyDown);
         window.addEventListener('wheel', handleWheel, { passive: false });
@@ -62,7 +73,7 @@ export default function Scrollbar({ refs }) {
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
         >
-        <VStack spacing={4}>
+        <VStack spacing={4} alignItems="end">
             {Object.entries(refs).map(([key, ref]) => (
             <Flex 
                 key={key} 
@@ -71,10 +82,17 @@ export default function Scrollbar({ refs }) {
                 onMouseEnter={() => handleClick(key, ref)}
                 onMouseLeave={() => setHoveredKey(null)}
             >
-                <Text mr="1em" opacity={(activeKey === key && hovered )||hoveredKey === key ? 1 : 0}>{key}</Text>
+
+                <Text
+                    mr="1em" 
+                    opacity={(hovered === true && activeKey === key )||hoveredKey === key ? 1 : 0}
+                >
+                    {key}
+                </Text>
+
                 <Circle 
-                    size="15px" 
-                    bg={activeKey === key ? "brand.300" : "brand.900"}
+                    size={hovered ? "10px" : "10px" }
+                    bg={activeKey === key ? "brand.300" : "grey"}
                     mr="1em"
                 />
             </Flex>
