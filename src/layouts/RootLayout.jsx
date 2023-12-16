@@ -4,7 +4,19 @@ import { Box } from "@chakra-ui/react"
 
 export default function RootLayout() {
   return (
-    <Box h="100vh" display="flex" flexDirection="column" overflow="hidden">
+    <Box 
+      h="100vh" 
+      display="flex" 
+      flexDirection="column" 
+      overflow="hidden" 
+      position="relative"
+      sx={{
+        backgroundImage:"radial-gradient(circle, rgba(61, 181, 230, .25), black)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <Box>
         <Navbar />
       </Box>
@@ -12,12 +24,11 @@ export default function RootLayout() {
         '&::-webkit-scrollbar': {
           display: 'none',
         },
-        '-ms-overflow-style': 'none',
-        'scrollbar-width': 'none',
+        'msOverflowStyle': 'none',
+        'scrollbarWidth': 'none',
       }}>
         <Outlet />
       </Box>
-      
     </Box>
   )
 }

@@ -1,7 +1,8 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Highlight, Text } from "@chakra-ui/react";
 import Welcome from "../components/home/Welcome";
 import { useRef } from "react";
 import Scrollbar from "../components/Scrollbar";
+import UnderConstruction from "../components/UnderConstruction";
 
 const Home = () => {
   const ref1 = useRef(null);
@@ -22,10 +23,10 @@ const Home = () => {
         <Welcome />
       </Box>
       <Box ref={ref2} w="100%" h="90vh">
-        <Text>Section 2</Text>
+        <UnderConstruction />
       </Box>
       <Box ref={ref3} w="100%" h="90vh">
-        <Text>Section 3</Text>
+        <UnderConstruction />
       </Box>
     </>
   );

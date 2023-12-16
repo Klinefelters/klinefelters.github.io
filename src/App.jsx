@@ -10,7 +10,6 @@ import RootLayout from './layouts/RootLayout'
 import Home from './pages/Home'
 import About from './pages/About'
 import Projects from './pages/Projects'
-import Backdrop from './Backdrop'
 
 // router and routes
 const router = createBrowserRouter(
@@ -26,9 +25,6 @@ const router = createBrowserRouter(
 
 export default function App() {
   return (
-    <>
     <RouterProvider router={router} />
-    <Backdrop/>
-    </>
   )
 }

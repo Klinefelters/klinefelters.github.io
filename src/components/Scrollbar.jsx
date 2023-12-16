@@ -82,7 +82,6 @@ export default function Scrollbar({ refs }) {
                 onMouseEnter={() => handleClick(key, ref)}
                 onMouseLeave={() => setHoveredKey(null)}
             >
-
                 <Text
                     mr="1em" 
                     opacity={(hovered === true && activeKey === key )||hoveredKey === key ? 1 : 0}

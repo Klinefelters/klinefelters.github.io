@@ -1,6 +1,7 @@
-import { Box, Flex, Spacer, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Spacer, Heading } from "@chakra-ui/react";
 import { useRef } from "react";
 import Scrollbar from "../components/Scrollbar";
+import UnderConstruction from "../components/UnderConstruction";
 
 
 export default function About() {
@@ -27,15 +28,16 @@ export default function About() {
           <Heading>About Me</Heading>
           <Spacer />
         </Flex>
+        <UnderConstruction />
       </Box>
       <Box ref={ref2} w="100%" h="90vh">
-        <Text>Section 2</Text>
+        <UnderConstruction />
       </Box>
       <Box ref={ref3} w="100%" h="90vh">
-        <Text>Section 3</Text>
+        <UnderConstruction />
       </Box>
       <Box ref={ref4} w="100%" h="90vh">
-        <Text>Section 4</Text>
+        <UnderConstruction />
       </Box>
     </>
   );
