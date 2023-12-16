@@ -1,37 +1,30 @@
-import {ChakraProvider, extendTheme} from '@chakra-ui/react';
+import { 
+  createBrowserRouter, 
+  createRoutesFromElements, 
+  Route, 
+  RouterProvider 
+} from 'react-router-dom'
 
-const colors = {
-  brand: {
-    900: '#0A2240',
-    600: '#004B98',
-    300: '#3DB5E6',
-    grey: '#C8C8C8',
-    green: '#61BF1A',
-    red: '#E1261C',
-  },
-}
+// layouts and pages
+import RootLayout from './layouts/RootLayout'
+import Home from './pages/Home'
+import About from './pages/About'
+import Projects from './pages/Projects'
 
+// router and routes
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<RootLayout />}>
+      <Route index element={<Home />} />
+      <Route path="about" element={<About />} />
+      <Route path="projects" element={<Projects />} />
+    </Route>
+  )
+)
 
-const fonts = {
-  body: 'Tahoma',
-  heading: 'Courier New'
-}
-
-const theme = extendTheme({
-  config: {
-    initialColorMode: 'dark',
-    useSystemColorMode: false,
-  },
-  colors, 
-  fonts,
-});
-
-// if (localStorage.getItem('chakra-ui-color-mode') === 'light') localStorage.removeItem('chakra-ui-color-mode');
 
 export default function App() {
-
   return (
-    <ChakraProvider theme={theme}>
-    </ChakraProvider>
-  );
+    <RouterProvider router={router} />
+  )
 }
