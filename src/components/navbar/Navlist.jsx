@@ -5,7 +5,7 @@ export default function NavList(){
   const [isLargerScreen] = useMediaQuery("(min-width: 600px)")
   
   const style = {
-    py:"0px",
+    py:`${isLargerScreen ? "0" : "2vh"}`,
     px:"4vw",
   }
 
