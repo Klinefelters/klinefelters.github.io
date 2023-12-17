@@ -2,7 +2,13 @@ import { Flex, Spacer, useMediaQuery, Text, Box, Image } from "@chakra-ui/react"
 import Typewriter from "typewriter-effect";
 
 export default function Welcome () {
-    const options = ["Engineering Student", "FRC Alumni and Mentor", "Etown RMI Club President"];
+    const options = [
+        "Engineering Student", 
+        "FRC Alumni and Mentor", 
+        "Robotics Hobbyist", 
+        "Amateur Programmer",
+        "Etown RMI Club President"
+    ];
     const [isSmallerScreen] = useMediaQuery("(max-width: 600px)")
     
     if (isSmallerScreen) {
