@@ -23,18 +23,44 @@ export default function Scrollbar({ refs }) {
     }
 
     useEffect(() => {
+
         const handleKeyDown = (event) => {
             const keys = Object.keys(refs);
             const currentIndex = keys.indexOf(activeKey);
         
             if (event.key === 'ArrowUp' && currentIndex > 0) {
-                handleClick(keys[currentIndex - 1], refs[keys[currentIndex - 1]]);
+                setActiveSection(keys[currentIndex - 1], refs[keys[currentIndex - 1]]);
             } else if (event.key === 'ArrowDown' && currentIndex < keys.length - 1) {
-                handleClick(keys[currentIndex + 1], refs[keys[currentIndex + 1]]);
+                setActiveSection(keys[currentIndex + 1], refs[keys[currentIndex + 1]]);
             }
         };
 
+        let touchStartY = null;
 
+        const handleTouchStart = (event) => {
+            touchStartY = event.touches[0].clientY;
+        };
+
+        const handleTouchMove = (event) => {
+            event.preventDefault();
+            if (!touchStartY) {
+                return;
+            }
+
+            const touchEndY = event.touches[0].clientY;
+            const deltaY = touchStartY - touchEndY;
+
+            const keys = Object.keys(refs);
+            const currentIndex = keys.indexOf(activeKey);
+
+            if (deltaY > 0 && currentIndex < keys.length - 1) { // Swiped up
+                setActiveSection(keys[currentIndex + 1], refs[keys[currentIndex + 1]]);
+            } else if (deltaY < 0 && currentIndex > 0) { // Swiped down
+                setActiveSection(keys[currentIndex - 1], refs[keys[currentIndex - 1]]);
+            }
+
+            touchStartY = null;
+        };
         const callback = (event) => {
             event.preventDefault();
 
@@ -42,9 +68,9 @@ export default function Scrollbar({ refs }) {
             const currentIndex = keys.indexOf(activeKey);
 
             if (event.deltaY < 0 && currentIndex > 0) {
-                handleClick(keys[currentIndex - 1], refs[keys[currentIndex - 1]]);
+                setActiveSection(keys[currentIndex - 1], refs[keys[currentIndex - 1]]);
             } else if (event.deltaY > 0 && currentIndex < keys.length - 1) {
-                handleClick(keys[currentIndex + 1], refs[keys[currentIndex + 1]]);
+                setActiveSection(keys[currentIndex + 1], refs[keys[currentIndex + 1]]);
             }
         };
 
@@ -52,14 +78,18 @@ export default function Scrollbar({ refs }) {
     
         window.addEventListener('keydown', handleKeyDown);
         window.addEventListener('wheel', handleWheel, { passive: false });
+        window.addEventListener('touchstart', handleTouchStart, { passive: true });
+        window.addEventListener('touchmove', handleTouchMove, { passive: false });
     
         return () => {
             window.removeEventListener('keydown', handleKeyDown);
             window.removeEventListener('wheel', handleWheel);
+            window.removeEventListener('touchstart', handleTouchStart);
+            window.removeEventListener('touchmove', handleTouchMove);
         };
     }, [activeKey, refs]);
 
-    const handleClick = (key, ref) => {
+    const setActiveSection = (key, ref) => {
         setActiveKey(key)
         ref.current.scrollIntoView({ behavior: 'smooth' })
     }
@@ -77,9 +107,9 @@ export default function Scrollbar({ refs }) {
             {Object.entries(refs).map(([key, ref]) => (
             <Flex 
                 key={key} 
-                onClick={() => handleClick(key, ref)} 
+                onClick={() => setActiveSection(key, ref)} 
                 alignItems="center" 
-                onMouseEnter={() => handleClick(key, ref)}
+                onMouseEnter={() => setActiveSection(key, ref)}
                 onMouseLeave={() => setHoveredKey(null)}
             >
                 <Text
