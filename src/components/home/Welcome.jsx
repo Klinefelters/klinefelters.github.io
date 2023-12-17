@@ -7,10 +7,10 @@ export default function Welcome () {
     
     if (isSmallerScreen) {
         return(
-            <Box w="100%" h="90vh" p="2em" >
+            <Box w="calc(100vw - 50px)" h="100%" p="2em" >
                 <Flex>
                     <Spacer/>
-                    <Box >
+                    <Box justifyItems="center">
                         <Text fontSize="2xl">{`Hi there!`}</Text>
                         <Text fontSize="2xl">
                             I'm{"\u00A0"}
@@ -26,7 +26,7 @@ export default function Welcome () {
                 </Flex>
                 <Flex>
                     <Spacer />
-                    <Image ml="10%" h="45vh" src="/home.png"></Image>
+                    <Image maxW="100%" maxH="50vh" src="/home.png"></Image>
                     <Spacer />
                 </Flex>
             </Box>
@@ -48,7 +48,7 @@ export default function Welcome () {
                     <Typewriter options={{strings: options, autoStart: true, loop: true, delay: 50, deleteSpeed: 50,}}/>
                 </Box>
             </Box>
-            <Image ml="10%" w="35%" src="/home.png"></Image>
+            <Image ml="10%" maxW="35%" maxH="75vh" src="/home.png"></Image>
             <Spacer />
         </Flex>
         );

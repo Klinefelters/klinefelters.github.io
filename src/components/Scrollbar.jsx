@@ -1,10 +1,11 @@
-import { Circle, VStack, Text, Flex, Spacer } from "@chakra-ui/react"
+import { Circle, VStack, Text, Flex, useMediaQuery } from "@chakra-ui/react"
 import { useState, useEffect } from "react"
 
 export default function Scrollbar({ refs }) {
     const [hoveredKey, setHoveredKey] = useState(null);
     const [activeKey, setActiveKey] = useState(Object.keys(refs)[0]);
     const [hovered, setHovered] = useState(false);
+    const [isSmallerScreen] = useMediaQuery("(max-width: 600px)")
 
     function throttle(fn, wait) {
         var time = Date.now();
@@ -98,7 +99,7 @@ export default function Scrollbar({ refs }) {
         <Flex 
             position="fixed" 
             right="0" 
-            h="calc(100vh - 70px)" 
+            h={isSmallerScreen ? "50vh" : "calc(100vh - 90px)"} 
             alignItems="center"
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
