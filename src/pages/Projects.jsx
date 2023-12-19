@@ -1,44 +1,24 @@
-import { Box, Flex, Spacer, Heading } from "@chakra-ui/react";
-import { useRef } from "react";
-import Scrollbar from "../components/Scrollbar";
-import UnderConstruction from "../components/UnderConstruction";
-
+import { Box, Heading, SimpleGrid, useMediaQuery } from "@chakra-ui/react";
+import ProjectCard from "../components/projects/ProjectCard";
+import { projects } from "../projectData";
 
 export default function Projects() {
-  const ref1 = useRef(null)
-  const ref2 = useRef(null)
-  const ref3 = useRef(null)
-  const ref4 = useRef(null)
-  // Add more refs as needed
-
-  const refs = {
-      section1: ref1,
-      section2: ref2,
-      section3: ref3,
-      section4: ref4,
-      // Add more key-ref pairs as needed
-  }
+  const [isSmallerScreen] = useMediaQuery("(max-width: 600px)")
 
   return (
-    <>
-      <Scrollbar refs={refs} />
-      <Box ref={ref1} w="100%" h="90vh">
-        <Flex w="100%">
-          <Spacer />
-          <Heading>Projects</Heading>
-          <Spacer />
-        </Flex>
-        <UnderConstruction />
-      </Box>
-      <Box ref={ref2} w="100%" h="90vh">
-        <UnderConstruction />
-      </Box>
-      <Box ref={ref3} w="100%" h="90vh">
-        <UnderConstruction />
-      </Box>
-      <Box ref={ref4} w="100%" h="90vh">
-        <UnderConstruction />
-      </Box>
-    </>
+    <Box overflowY="auto" h="100%" sx={{
+      '&::-webkit-scrollbar': {
+        display: 'auto',
+      },
+      'msOverflowStyle': 'auto',
+      'scrollbarWidth': 'auto',
+    }}>
+      <Heading as="h1" size="2xl" textAlign="center" pt="25px">Projects</Heading>
+      <SimpleGrid  w="100%" h="100%" p="25px" minChildWidth={isSmallerScreen ? "90vw": "480px"} spacingX='50px' spacingY='75px'>
+        {projects.map((project, index) => (
+          <ProjectCard key={index} {...project} />
+        ))}
+      </SimpleGrid>
+    </Box>
   );
 }

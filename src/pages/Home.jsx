@@ -1,6 +1,6 @@
-import { Box, Highlight, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import Welcome from "../components/home/Welcome";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Scrollbar from "../components/Scrollbar";
 import UnderConstruction from "../components/UnderConstruction";
 

@@ -14,14 +14,13 @@ import Projects from './pages/Projects'
 // router and routes
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout />}>
-      <Route index element={<Home />} />
-      <Route path="about" element={<About />} />
-      <Route path="projects" element={<Projects />} />
+    <Route exact path="/" element={<RootLayout />}>
+      <Route exact index element={<Home />} />
+      <Route exact path="about" element={<About />} />
+      <Route exact path="projects" element={<Projects />} />
     </Route>
   )
 )
-
 
 export default function App() {
   return (
