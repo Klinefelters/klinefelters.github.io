@@ -1,7 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import { List, ListItem, useMediaQuery, useTheme } from "@chakra-ui/react"
+import { List, ListItem, useMediaQuery, useTheme, Button } from "@chakra-ui/react"
 import { NavLink } from "react-router-dom"
+import { FaHome, FaAddressBook, FaProjectDiagram } from "react-icons/fa";
 
 export default function Navlist() {
   const [isLargerScreen] = useMediaQuery("(min-width: 600px)")
@@ -45,7 +46,7 @@ export default function Navlist() {
     <List color="brand.300" fontSize="1.2em" display="flex" flexDirection={isLargerScreen ? "row" : "column"}>
       <ListItem sx={style}>
         <NavLink css={linkStyle} to="/">
-          Home
+          <Button size="xl" variant="unstlyed"><FaHome />{"\u00A0"}Home</Button>
         </NavLink>
       </ListItem>
       {/* <ListItem sx={style}>
@@ -55,12 +56,12 @@ export default function Navlist() {
       </ListItem> */}
       <ListItem sx={style}>
         <NavLink css={linkStyle} to="/projects">
-          Projects
+          <Button size="xl" variant="unstlyed"><FaProjectDiagram />{"\u00A0"}Projects</Button>
         </NavLink>
       </ListItem>
       <ListItem sx={style}>
         <NavLink css={linkStyle} to="/resume">
-          Resume
+          <Button size="xl" variant="unstlyed"><FaAddressBook />{"\u00A0"}Resume</Button>
         </NavLink>
       </ListItem>
     </List>

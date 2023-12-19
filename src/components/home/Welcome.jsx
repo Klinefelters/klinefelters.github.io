@@ -1,21 +1,21 @@
 import { Flex, Spacer, useMediaQuery, Text, Box, Image } from "@chakra-ui/react";
 import Typewriter from "typewriter-effect";
 
-export default function Welcome () {
+export default function Welcome() {
     const options = [
-        "Engineering Student", 
-        "FRC Alumni and Mentor", 
-        "Robotics Hobbyist", 
+        "Engineering Student",
+        "FRC Alumni and Mentor",
+        "Robotics Hobbyist",
         "Amateur Programmer",
         "Etown RMI Club President"
     ];
     const [isSmallerScreen] = useMediaQuery("(max-width: 600px)")
-    
+
     if (isSmallerScreen) {
-        return(
+        return (
             <Box w="calc(100vw - 50px)" h="100%" p="2em" >
                 <Flex>
-                    <Spacer/>
+                    <Spacer />
                     <Box justifyItems="center">
                         <Text fontSize="2xl">{`Hi there!`}</Text>
                         <Text fontSize="2xl">
@@ -25,10 +25,10 @@ export default function Welcome () {
                             </Box>
                         </Text>
                         <Box fontSize="md" mt="10%" color="brand.300" mb="10%">
-                            <Typewriter options={{strings: options, autoStart: true, loop: true, delay: 50, deleteSpeed: 50,}}/>
+                            <Typewriter options={{ strings: options, autoStart: true, loop: true, delay: 50, deleteSpeed: 50, }} />
                         </Box>
                     </Box>
-                    <Spacer/>
+                    <Spacer />
                 </Flex>
                 <Flex>
                     <Spacer />
@@ -37,26 +37,26 @@ export default function Welcome () {
                 </Flex>
             </Box>
         );
-    }else{
- 
+    } else {
+
         return (
-        <Flex alignItems="center" w="100%" h="90vh" p="2em">
-            <Spacer />
-            <Box >
-                <Text fontSize="4xl">{`Hi there!`}</Text>
-                <Text fontSize="4xl">
-                    I'm{"\u00A0"}
-                    <Text as="span" color="brand.300">
-                        Steven{"\u00A0"}Klinefelter
+            <Flex alignItems="center" w="100%" h="90vh" p="2em">
+                <Spacer />
+                <Box >
+                    <Text fontSize="4xl">{`Hi there!`}</Text>
+                    <Text fontSize="4xl">
+                        I'm{"\u00A0"}
+                        <Text as="span" color="brand.300">
+                            Steven{"\u00A0"}Klinefelter
+                        </Text>
                     </Text>
-                </Text>
-                <Box fontSize="2xl" color="brand.300" mt="10%" mb="10%">
-                    <Typewriter options={{strings: options, autoStart: true, loop: true, delay: 50, deleteSpeed: 50,}}/>
+                    <Box fontSize="2xl" color="brand.300" mt="10%" mb="10%">
+                        <Typewriter options={{ strings: options, autoStart: true, loop: true, delay: 50, deleteSpeed: 50, }} />
+                    </Box>
                 </Box>
-            </Box>
-            <Image ml="10%" maxW="35%" maxH="75vh" src="/home.png"></Image>
-            <Spacer />
-        </Flex>
+                <Image ml="10%" maxW="35%" maxH="75vh" src="/home.png"></Image>
+                <Spacer />
+            </Flex>
         );
     }
 }

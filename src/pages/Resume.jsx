@@ -4,6 +4,7 @@ import { DownloadIcon } from '@chakra-ui/icons';
 import { pdfjs } from 'react-pdf';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
+import Footer from '../components/Footer';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     'pdfjs-dist/build/pdf.worker.min.js',
@@ -34,6 +35,7 @@ export default function Resume() {
                     <Page scale={isSmallerScreen ? .5 : 1} pageNumber={1} />
                 </Document>
             </Flex>
+            <Footer />
         </Box>
     );
 }
