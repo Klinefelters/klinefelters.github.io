@@ -11,8 +11,8 @@ const Home = () => {
 
   const refs = {
     "Welcome": ref1,
-    "Introduction": ref2,
-    "Highlights": ref3,
+    // "Introduction": ref2,
+    // "Highlights": ref3,
   };
 
   return (
@@ -22,12 +22,12 @@ const Home = () => {
       <Box ref={ref1} w="100%" h="90vh">
         <Welcome />
       </Box>
-      <Box ref={ref2} w="100%" h="90vh">
+      {/* <Box ref={ref2} w="100%" h="90vh">
         <UnderConstruction />
       </Box>
       <Box ref={ref3} w="100%" h="90vh">
         <UnderConstruction />
-      </Box>
+      </Box> */}
     </>
   );
 };

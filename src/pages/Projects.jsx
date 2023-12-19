@@ -14,7 +14,7 @@ export default function Projects() {
       'scrollbarWidth': 'auto',
     }}>
       <Heading as="h1" size="2xl" textAlign="center" pt="25px">Projects</Heading>
-      <SimpleGrid  w="100%" h="100%" p="25px" minChildWidth={isSmallerScreen ? "90vw": "480px"} spacingX='50px' spacingY='75px'>
+      <SimpleGrid w="100%" h="80%" p="25px" minChildWidth={isSmallerScreen ? "90vw" : "480px"} spacingX='50px' spacingY='75px'>
         {projects.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
