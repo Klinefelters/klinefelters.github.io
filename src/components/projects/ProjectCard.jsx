@@ -8,15 +8,15 @@ export default function ProjectCard({ title, description, buttons, video }) {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <Flex 
-            flexDirection="column" 
-            p="4" maxW="800px" 
-            maxH="70vh" 
-            color="white" 
-            bg="rgba(61, 181, 230, .25)" 
-            borderRadius="3xl" 
+        <Flex
+            flexDirection="column"
+            p="4" maxW="800px"
+            maxH="70vh"
+            color="white"
+            bg="rgba(61, 181, 230, .25)"
+            borderRadius="3xl"
         >
-            <Heading fontSize="3xl" m="2">{title}</Heading>
+            <Heading textAlign="center" fontSize="3xl" m="2">{title}</Heading>
             <Spacer />
             <Box
                 onMouseEnter={() => {

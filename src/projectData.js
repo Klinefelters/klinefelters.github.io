@@ -7,7 +7,7 @@ export const projects = [
     // },
     {
         title: 'Word Wave',
-        description: 'A daily word vocabulary expansion game that rewards players with tokens on the Solana blockchain.',
+        description: 'A daily word vocabulary game that rewards players with tokens on the Solana blockchain.',
         buttons: [
             { name: 'GitHub', url: 'https://github.com/Etown-Computer-Science-Club/SolanaWordWave' },
             { name: 'Website', url: 'https://wordwave.us' }
@@ -28,7 +28,7 @@ export const projects = [
     // },
     {
         title: 'Signal Noise',
-        description: 'A python simulation of signals and noise filtering for easy visualization.',
+        description: 'A python simulation of signals, noise types, and filtering strategies for easy visualization.',
         buttons: [{ name: 'GitHub', url: 'https://github.com/Klinefelters/SignalNoise' }],
         video: '/signalnoise.mp4'
     },
