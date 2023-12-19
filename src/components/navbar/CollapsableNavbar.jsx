@@ -1,5 +1,5 @@
 import { HamburgerIcon } from "@chakra-ui/icons"
-import NavList from "./NavList"
+import Navlist from "./Navlist"
 import {
   Drawer,
   DrawerBody,
@@ -32,7 +32,7 @@ export default function CollapsableNavbar() {
           <DrawerCloseButton />
           <DrawerHeader color="brand.300">Navigation</DrawerHeader>
           <DrawerBody>
-            <NavList />
+            <Navlist />
           </DrawerBody>
         </DrawerContent>
       </Drawer>

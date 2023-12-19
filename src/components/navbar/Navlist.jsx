@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import { List, ListItem, useMediaQuery, useTheme } from "@chakra-ui/react"
 import { NavLink } from "react-router-dom"
 
-export default function NavList() {
+export default function Navlist() {
   const [isLargerScreen] = useMediaQuery("(min-width: 600px)")
   const theme = useTheme()
 
@@ -54,13 +54,13 @@ export default function NavList() {
         </NavLink>
       </ListItem> */}
       <ListItem sx={style}>
-        <NavLink css={linkStyle} to="/resume">
-          Resume
+        <NavLink css={linkStyle} to="/projects">
+          Projects
         </NavLink>
       </ListItem>
       <ListItem sx={style}>
-        <NavLink css={linkStyle} to="/projects">
-          Projects
+        <NavLink css={linkStyle} to="/resume">
+          Resume
         </NavLink>
       </ListItem>
     </List>
