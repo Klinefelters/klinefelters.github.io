@@ -12,7 +12,7 @@ export const projects = [
     //     video: '/OmniPi.mp4'
     // },
     {
-        title: 'Solana Word Wave',
+        title: 'Word Wave',
         description: 'A daily word vocabulary expansion game that rewards players with tokens on the Solana blockchain.',
         buttons: [
             { name: 'GitHub', url: 'https://github.com/Etown-Computer-Science-Club/SolanaWordWave' },
