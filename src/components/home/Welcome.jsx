@@ -40,22 +40,22 @@ export default function Welcome() {
     } else {
 
         return (
-            <Flex alignItems="center" p="2em">
-                <Spacer />
-                <Box >
-                    <Text fontSize="4xl">{`Hi there!`}</Text>
-                    <Text fontSize="4xl">
-                        I'm{"\u00A0"}
-                        <Text as="span" color="brand.300">
-                            Steven{"\u00A0"}Klinefelter
+            <Flex direction="column" justifyContent="center" h="calc(100vh - 175px)" >
+                <Flex justifyContent="center" alignContent="center">
+                    <Flex direction="column" justifyContent="center" >
+                        <Text fontSize="4xl">{`Hi there!`}</Text>
+                        <Text fontSize="4xl">
+                            I'm{"\u00A0"}
+                            <Text as="span" color="brand.300">
+                                Steven{"\u00A0"}Klinefelter
+                            </Text>
                         </Text>
-                    </Text>
-                    <Box fontSize="2xl" color="brand.300" mt="10%" mb="10%">
-                        <Typewriter options={{ strings: options, autoStart: true, loop: true, delay: 50, deleteSpeed: 50, }} />
-                    </Box>
-                </Box>
-                <Image ml="10%" maxW="35%" maxH="75vh" src="/home.png"></Image>
-                <Spacer />
+                        <Box fontSize="2xl" color="brand.300" mt="10%">
+                            <Typewriter options={{ strings: options, autoStart: true, loop: true, delay: 50, deleteSpeed: 50, }} />
+                        </Box>
+                    </Flex>
+                    <Image ml="10%" maxW="35%" maxH="75vh" src="/home.png"></Image>
+                </Flex>
             </Flex>
         );
     }
