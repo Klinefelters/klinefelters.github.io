@@ -52,7 +52,7 @@ export default function ProjectCard({ title, description, buttons, video }) {
             <Spacer />
             <ButtonGroup m="2" spacing="2">
                 {buttons.map((button, index) => (
-                    <Button fontSize="xl" key={index} colorScheme="blue" as="a" href={button.url} target="_blank" >
+                    <Button fontSize="md" key={index} colorScheme="blue" as="a" href={button.url} target="_blank" >
                         <LinkIcon />{"\u00A0"}{button.name}
                     </Button>
                 ))}
