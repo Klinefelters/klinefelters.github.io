@@ -32,7 +32,7 @@ export default function Welcome() {
                 </Flex>
                 <Flex>
                     <Spacer />
-                    <Image maxW="100%" maxH="50vh" src="/home.png"></Image>
+                    <Image maxW="100%" maxH="30vh" src="/home.png"></Image>
                     <Spacer />
                 </Flex>
             </Box>
