@@ -54,7 +54,7 @@ export default function ProjectCard({ title, description, buttons, video }) {
             <Flex justifyContent="center" alignItems="center" m="2">
                 <ButtonGroup m="2" spacing="2">
                     {buttons.map((button, index) => (
-                        <Button size={isSmallerScreen ? "sm" : "md"} key={index} colorScheme="blue" as="a" href={button.url} target="_blank" download={button.download} >
+                        <Button size={isSmallerScreen ? "xs" : "md"} key={index} colorScheme="blue" as="a" href={button.url} target="_blank" download={button.download} >
                             {button.download &&
                                 <DownloadIcon /> ||
                                 <LinkIcon />
