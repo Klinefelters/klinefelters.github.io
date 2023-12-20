@@ -41,7 +41,7 @@ export default function NavItem({ link, icon, text }) {
     }
   `;
   return (
-    <ListItem sx={style}>
+    <ListItem sx={style} onClick={() => window.scrollTo(0, 0)}>
       <NavLink css={linkStyle} to={link}>
         <Button size="xl" variant="unstlyed">{icon}{"\u00A0"}{text}</Button>
       </NavLink>

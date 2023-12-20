@@ -87,7 +87,7 @@ export default function RootLayout() {
       overflow="hidden"
       position="relative"
       sx={{
-        backgroundColor: "black",
+        backgroundColor: "rgba(0, 0, 0, .5)",
         backgroundImage: "radial-gradient(circle, rgba(61, 181, 230, .125), rgba(49, 0, 71, .25), transparent)",
         backgroundSize: "cover",
         backgroundPosition: "center",

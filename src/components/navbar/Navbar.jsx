@@ -10,7 +10,7 @@ export default function Navbar() {
       as="nav"
       h="75px"
       px="4vw"
-      bg="rgba(0, 0, 0, 1)"
+      bg="black"
       alignItems="center"
       backdropFilter="blur(50px)"
     >
