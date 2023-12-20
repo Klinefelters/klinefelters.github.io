@@ -115,7 +115,9 @@ export default function RootLayout() {
         overflow="auto"
         zIndex={1}
       >
-        <Outlet />
+        <Box minH={`calc(${heightValue} - 175px)`}>
+          <Outlet />
+        </Box>
         <Footer />
       </Box>
     </Box>
