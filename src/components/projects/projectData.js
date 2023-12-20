@@ -17,13 +17,13 @@ export const projects = [
     {
         title: 'OmniPi',
         description: 'A Raspberry Pi powered robot that can move in any direction using a custom programmed web interface. ',
-        buttons: [{ name: 'GitHub', url: 'https://github.com/Klinefelters/OmniPi' }],
+        buttons: [{ name: 'GitHub', url: 'https://github.com/Klinefelters/OmniPi' }, { name: 'Manual', url: '/OmniPi.pdf', download: true }],
         video: '/OmniPi.mp4'
     },
     // {
     //     title: 'JayRadar',
     //     description: 'A Co-Processor agonistic Yolov8 powered object detection system for FIRST Robotics Competitions.',
-    //     buttons: [{ name: 'GitHub', url: 'https://github.com/BlueJayADAL/JayRadar' }],
+    //     buttons: [{ name: 'GitHub', url: 'https://github.com/BlueJayADAL/JayRadar' }, { name: 'Paper', url: '/JayRadar.pdf', download: true }],
     //     video: '/wordwave.mp4'
     // },
     {
