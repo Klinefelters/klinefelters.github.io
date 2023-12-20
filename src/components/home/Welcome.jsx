@@ -13,7 +13,7 @@ export default function Welcome() {
 
     if (isSmallerScreen) {
         return (
-            <Box w="calc(100vw - 50px)" h="100%" p="2em" >
+            <Box p="2em" >
                 <Flex>
                     <Spacer />
                     <Box justifyItems="center">
@@ -40,7 +40,7 @@ export default function Welcome() {
     } else {
 
         return (
-            <Flex alignItems="center" w="100%" h="90vh" p="2em">
+            <Flex alignItems="center" p="2em">
                 <Spacer />
                 <Box >
                     <Text fontSize="4xl">{`Hi there!`}</Text>

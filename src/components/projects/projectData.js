@@ -7,7 +7,7 @@ export const projects = [
     // },
     {
         title: 'Word Wave',
-        description: 'A daily word vocabulary game that rewards players with tokens on the Solana blockchain.',
+        description: 'A daily vocabulary game that rewards players with tokens on the Solana blockchain.',
         buttons: [
             { name: 'GitHub', url: 'https://github.com/Etown-Computer-Science-Club/SolanaWordWave' },
             { name: 'Website', url: 'https://wordwave.us' }
