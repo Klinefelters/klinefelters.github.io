@@ -1,5 +1,5 @@
 import { Box, Text, AspectRatio, Flex, ButtonGroup, Button, Spacer, Heading, useMediaQuery } from "@chakra-ui/react";
-import { LinkIcon } from "@chakra-ui/icons";
+import { LinkIcon, DownloadIcon } from "@chakra-ui/icons";
 import { useRef, useState } from "react";
 
 export default function ProjectCard({ title, description, buttons, video }) {
@@ -52,8 +52,12 @@ export default function ProjectCard({ title, description, buttons, video }) {
             <Spacer />
             <ButtonGroup m="2" spacing="2">
                 {buttons.map((button, index) => (
-                    <Button fontSize="md" key={index} colorScheme="blue" as="a" href={button.url} target="_blank" >
-                        <LinkIcon />{"\u00A0"}{button.name}
+                    <Button fontSize="md" key={index} colorScheme="blue" as="a" href={button.url} target="_blank" download={button.download} >
+                        {button.download &&
+                            <DownloadIcon /> ||
+                            <LinkIcon />
+                        }
+                        {"\u00A0"}{button.name}
                     </Button>
                 ))}
             </ButtonGroup>
