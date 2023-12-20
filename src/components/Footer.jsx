@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import { Link, Flex, IconButton, Text, useTheme } from "@chakra-ui/react"
-import { FaLinkedin, FaGithubSquare } from "react-icons/fa";
+import { Link, Flex, Text, useTheme } from "@chakra-ui/react"
+import { FaLinkedin, FaGithubSquare, FaAt } from "react-icons/fa";
 
 export default function Footer() {
   const theme = useTheme();
@@ -29,6 +29,9 @@ export default function Footer() {
         <Link css={linkStyle} href="https://www.linkedin.com/in/klinefelters/" isExternal mx="2">
           <FaLinkedin size="30px" />
         </Link>
+        {/* <Link css={linkStyle} href="mailto:klinefelters@etown.edu" isExternal mx="2">
+          <FaAt size="30px" />
+        </Link> */}
         <Link css={linkStyle} href="https://www.github.com/klinefelters/" isExternal mx="2">
           <FaGithubSquare size="30px" />
         </Link>
