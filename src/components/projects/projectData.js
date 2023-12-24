@@ -1,10 +1,10 @@
 export const projects = [
-    // {
-    //     title: 'Go Fish Engine',
-    //     description: 'This is project 1',
-    //     buttons: [{ name: 'GitHub', url: 'https://github.com/Klinefelters/GoFishEngine' }],
-    //     video: '/OmniPi.mp4'
-    // },
+    {
+        title: 'Go Fish Engine',
+        description: 'A python Go Fish Engine to test bots against each other.',
+        buttons: [{ name: 'GitHub', url: 'https://github.com/Klinefelters/GoFishEngine' }],
+        video: '/gofishengine.mp4'
+    },
     {
         title: 'OmniPi',
         description: 'A Raspberry Pi powered robot that can move in any direction using a custom programmed web interface. ',
