@@ -1,5 +1,5 @@
 import { Box, Text, AspectRatio, Flex, ButtonGroup, Button, Spacer, Heading, useMediaQuery } from "@chakra-ui/react";
-import { LinkIcon } from "@chakra-ui/icons";
+import { LinkIcon, DownloadIcon } from "@chakra-ui/icons";
 import { useRef, useState } from "react";
 
 export default function ProjectCard({ title, description, buttons, video }) {
@@ -10,7 +10,8 @@ export default function ProjectCard({ title, description, buttons, video }) {
     return (
         <Flex
             flexDirection="column"
-            p="4" maxW="800px"
+            p="4"
+            maxW="80vw"
             maxH="70vh"
             color="white"
             bg="rgba(61, 181, 230, .25)"
@@ -46,17 +47,23 @@ export default function ProjectCard({ title, description, buttons, video }) {
                     backdropFilter={isHovered ? "none" : "blur(15px)"}
                     transition="background-color 1s, backdrop-filter 1s"
                 >
-                    <Text color="white" m="5" textAlign="center" fontSize="md" opacity={!isHovered ? 1 : 0} transition="opacity 1s">{description}</Text>
+                    <Text color="white" m="5" textAlign="center" fontSize={isSmallerScreen ? "sm" : "lg"} opacity={!isHovered ? 1 : 0} transition="opacity 1s">{description}</Text>
                 </Flex>
             </Box >
             <Spacer />
-            <ButtonGroup m="2" spacing="2">
-                {buttons.map((button, index) => (
-                    <Button fontSize="xl" key={index} colorScheme="blue" as="a" href={button.url} target="_blank" >
-                        <LinkIcon />{"\u00A0"}{button.name}
-                    </Button>
-                ))}
-            </ButtonGroup>
+            <Flex justifyContent="center" alignItems="center" m="2">
+                <ButtonGroup m="2" spacing="2">
+                    {buttons.map((button, index) => (
+                        <Button size={isSmallerScreen ? "xs" : "md"} key={index} colorScheme="blue" as="a" href={button.url} target="_blank" download={button.download} >
+                            {button.download &&
+                                <DownloadIcon /> ||
+                                <LinkIcon />
+                            }
+                            {"\u00A0"}{button.name}
+                        </Button>
+                    ))}
+                </ButtonGroup>
+            </Flex>
         </Flex >
     );
 }

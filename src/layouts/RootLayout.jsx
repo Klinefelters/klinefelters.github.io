@@ -68,11 +68,6 @@ export default function RootLayout() {
     });
   }, []);
 
-  const particlesLoaded = (container) => {
-    console.log(container);
-  };
-
-
   useEffect(() => {
     const handleResize = () => setHeight(window.innerHeight);
     window.addEventListener('resize', handleResize);
@@ -97,7 +92,6 @@ export default function RootLayout() {
       {init &&
         <Particles
           id="tsparticles"
-          particlesLoaded={particlesLoaded}
           options={options}
           style={{
             position: 'absolute',
@@ -115,7 +109,9 @@ export default function RootLayout() {
         overflow="auto"
         zIndex={1}
       >
-        <Outlet />
+        <Box minH={`calc(${heightValue} - 175px)`}>
+          <Outlet />
+        </Box>
         <Footer />
       </Box>
     </Box>
