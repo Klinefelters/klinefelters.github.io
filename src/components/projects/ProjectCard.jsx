@@ -1,4 +1,4 @@
-import { Box, Text, AspectRatio, Flex, ButtonGroup, Button, Spacer, Heading, useMediaQuery } from "@chakra-ui/react";
+import { Box, Text, AspectRatio, Flex, ButtonGroup, Button, Spacer, Heading, Spinner, useMediaQuery } from "@chakra-ui/react";
 import { LinkIcon, DownloadIcon } from "@chakra-ui/icons";
 import { useRef, useState } from "react";
 
@@ -6,6 +6,7 @@ export default function ProjectCard({ title, description, buttons, video }) {
     const [isSmallerScreen] = useMediaQuery("(max-width: 600px)")
     const videoRef = useRef(null);
     const [isHovered, setIsHovered] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     return (
         <Flex
@@ -33,8 +34,10 @@ export default function ProjectCard({ title, description, buttons, video }) {
                 overflow="hidden"
             >
                 <AspectRatio ratio={isSmallerScreen ? 5 / 4 : 16 / 9} maxW="100%">
-                    <video ref={videoRef} src={video} style={{ maxHeight: "65vh", maxWidth: "100%" }} loop muted />
+                    <video ref={videoRef} src={video} style={{ maxHeight: "65vh", maxWidth: "100%" }} loop muted onLoadedData={() => setIsLoading(false)} />
                 </AspectRatio>
+                {isLoading && <Spinner size="xl" position="absolute" top="50%" left="50%" transform="translate(-50%, -50%)" />}
+                
                 <Flex
                     position="absolute"
                     top="0"
@@ -43,11 +46,11 @@ export default function ProjectCard({ title, description, buttons, video }) {
                     left="0"
                     justifyContent="center"
                     alignItems="center"
-                    bg={isHovered ? "transparent" : "rgba(0, 0, 0, 0.5)"}
-                    backdropFilter={isHovered ? "none" : "blur(15px)"}
+                    bg={(isHovered || isLoading) ? "transparent" : "rgba(0, 0, 0, 0.5)"}
+                    backdropFilter={(isHovered || isLoading) ? "none" : "blur(15px)"}
                     transition="background-color 1s, backdrop-filter 1s"
                 >
-                    <Text color="white" m="5" textAlign="center" fontSize={isSmallerScreen ? "sm" : "lg"} opacity={!isHovered ? 1 : 0} transition="opacity 1s">{description}</Text>
+                    {!isLoading && <Text color="white" m="5" textAlign="center" fontSize={isSmallerScreen ? "sm" : "lg"} opacity={!isHovered ? 1 : 0} transition="opacity 1s">{description}</Text>}
                 </Flex>
             </Box >
             <Spacer />
