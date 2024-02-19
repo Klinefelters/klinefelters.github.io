@@ -1,10 +1,10 @@
 export const projects = [
-    // {
-    //     title: 'Robotic Claw',
-    //     description: 'A miniature robotic claw designed using OnShape and a SG90 MicroServo',
-    //     buttons: [{ name: 'CAD', url: 'https://cad.onshape.com/documents/cacc59316646ba247131ba22/w/3a6cf60b0d3d9ae64eba0fb9/e/8bd662aa1674fbb0c276bd7b?renderMode=0&uiState=65d3633d1954bc5ce7fa2c4f'}],
-    //     video: '/roboticclaw.mp4'
-    // },
+    {
+        title: 'Robotic Claw',
+        description: 'A miniature robotic claw designed using OnShape and a SG90 MicroServo',
+        buttons: [{ name: 'CAD', url: 'https://cad.onshape.com/documents/cacc59316646ba247131ba22/w/3a6cf60b0d3d9ae64eba0fb9/e/8bd662aa1674fbb0c276bd7b?renderMode=0&uiState=65d3633d1954bc5ce7fa2c4f'}],
+        video: '/roboticclaw.mp4'
+    },
     {
         title: 'PINN Projectiles',
         description: 'A Taipy powered website that uses a Physics Informed Neural Network to predict linear projectile motion.',
